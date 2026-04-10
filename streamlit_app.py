@@ -29,7 +29,7 @@ hf_token = st.sidebar.text_input(
 )
 
 if hf_token:
-    st.session_state["hf_token"] = hf_token
+    st.session_state["hf_token"] = str(hf_token)
 
 # -----------------------------
 # INIT CLIENT
