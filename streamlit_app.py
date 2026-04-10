@@ -5,7 +5,7 @@ import unicodedata
 # -----------------------------
 # PAGE CONFIG
 # -----------------------------
-st.set_page_config(page_title="Forensic Sketch Generator", layout="wide")
+st.set_page_config(page_title="Forensic Sketch Generator(Z-Image-Turbo)", layout="wide")
 
 st.title("🕵️ Forensic Sketch Generation using GenAI")
 
