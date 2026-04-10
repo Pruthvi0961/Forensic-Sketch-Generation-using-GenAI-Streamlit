@@ -39,12 +39,13 @@ client = None
 if "hf_token" in st.session_state:
     try:
         client = InferenceClient(
-            api_key=st.session_state["hf_token"],
-            provider="replicate"
+            provider="replicate",
+            api_key=st.session_state["hf_token"].strip()
         )
-        st.sidebar.success("✅ Connected to Hugging Face")
-    except Exception:
-        st.sidebar.error("❌ Invalid token")
+        st.sidebar.success("✅ Connected to Replicate via HF")
+    except Exception as e:
+        st.sidebar.error("❌ Client init failed")
+        st.sidebar.exception(e)
 
 # -----------------------------
 # MAIN UI (NO TABS USED)
