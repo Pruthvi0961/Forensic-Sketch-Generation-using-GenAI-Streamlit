@@ -39,7 +39,8 @@ client = None
 if "hf_token" in st.session_state:
     try:
         client = InferenceClient(
-            api_key=st.session_state["hf_token"]
+            api_key=st.session_state["hf_token"],
+            provider= "replicate"
         )
         st.sidebar.success("✅ Connected to Hugging Face")
     except Exception:
@@ -86,10 +87,10 @@ final_prompt = manual_prompt if manual_prompt else guided_prompt
 
 if final_prompt:
     final_prompt = (
-        "Forensic police sketch, highly detailed face, "
+        "highly detailed face, "
         f"{final_prompt}, "
         "front-facing view, neutral expression, looking at camera, "
-        "plain grey background, harsh flat lighting, police sketch style"
+        "plain grey background, harsh flat lighting, police mughsot photography style"
     )
 
 # -----------------------------
@@ -124,7 +125,7 @@ if st.button("Generate Sketch"):
                 image = client.text_to_image(
                     prompt=safe_prompt,
                     negative_prompt=safe_negative,
-                    model="stabilityai/stable-diffusion-xl-base-1.0",
+                    model="Tongyi-MAI/Z-Image-Turbo",
                 )
 
                 st.image(image, caption="Generated Sketch", use_container_width=True)
