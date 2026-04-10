@@ -40,7 +40,7 @@ if "hf_token" in st.session_state:
     try:
         client = InferenceClient(
             api_key=st.session_state["hf_token"],
-            provider= "replicate"
+            provider="replicate"
         )
         st.sidebar.success("✅ Connected to Hugging Face")
     except Exception:
